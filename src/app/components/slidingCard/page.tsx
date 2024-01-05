@@ -74,7 +74,7 @@ const settings = {
               {imageItems.map((image, index) => (
                 <div
                 
-              className={`transform scale-${index === imageIndex ? "100" : "90"} transition-transform duration-350 ease-in-out`}
+              className={`transform ${index === imageIndex ? "scale-100" : "scale-90"} transition-transform duration-350 ease-in-out`}
                   key={index}
                 >
                   
