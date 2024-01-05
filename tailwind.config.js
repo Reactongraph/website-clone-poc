@@ -14,6 +14,10 @@ module.exports = {
       backgroundImage: {
         bg: "url('/images/bg.jpg')",
         girl: "url('/images/girl.png')",
+        adventure: "url('/images/bgAdventure.png')",
+        moving: "url('/images/bgMoving.png')",
+        ticket: "url('/images/ticketCard.png')",
+        wedding: "url('/images/bgWedding.png')",
      },
     },
   },

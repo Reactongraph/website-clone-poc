@@ -9,9 +9,6 @@ import japanImg from "../../../../public/images/japanImg.jpg";
 import Slider from 'react-slick';
 import {useState} from "react";
 
-
-
-
 const imageItems = [
   { src: mainCard, width: 208, height: 294 },
   { src: jointAccount, width: 208, height: 294 },
@@ -96,5 +93,4 @@ const settings = {
         </div>
   );
 };
-
 export default page;

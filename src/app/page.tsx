@@ -8,6 +8,7 @@ import Footer2 from "./components/footer2/page";
 import SlidingCard from "./components/slidingCard/page";
 import HomePage from "./components/homePage/page";
 import RevoluteCards from "./components/revoluteCards/page";
+import SavingBannerPage from "./components/savingBannerPage/page";
 
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <HomePage/>
       <SlidingCard/>
       <RevoluteCards/>
+      <SavingBannerPage/>
       {/* <Footer2/> */}
     </div>
   );
