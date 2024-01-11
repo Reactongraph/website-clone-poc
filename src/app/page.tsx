@@ -24,10 +24,10 @@ export default function Home() {
     // </div>
     
     <div>
-      {/* <HomePage/> */}
-      {/* <SlidingCard/> */}
-      {/* <RevoluteCards/> */}
-      {/* <SavingBannerPage/> */}
+      <HomePage/>
+      <SlidingCard/>
+      <RevoluteCards/>
+      <SavingBannerPage/>
       <SendingMoneyPage/>
       {/* <Footer2/> */}
     </div>
