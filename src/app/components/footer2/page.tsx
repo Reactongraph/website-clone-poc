@@ -7,7 +7,7 @@ const Footer = () => {
     <>
     <div className="bg-black py-[40px] px-[240px] justify-center">
     <div className="bg-black p-[25px]">
-      <h2 className="font-medium text-[1.75rem] leading-8 tracking-[0.0175rem] text-white my-[40px]">Choose your plan</h2>
+      <h2 className="font-medium text-[2.5rem] leading-8 tracking-[0.0175rem] text-white py-[4rem]">Choose your plan</h2>
     <div className="w-[65vw] grid grid-cols-6 min-h-fit [&_div:nth-child(1)]:col-span-2 [&_div:nth-child(2)]:col-span-2 [&_div:nth-child(3)]:col-span-2 [&_div:nth-child(4)]:col-span-3 [&_div:nth-child(5)]:col-span-3 gap-x-[24px] gap-y-[24px] max-w-[1078px] items-center mx-auto">
     {planDetails.map(item => (
 
@@ -26,7 +26,7 @@ const Footer = () => {
  ))}
     </div>
     </div>
-<div className="bg-black py-[10PX] pl-[20px]">
+<div className="bg-black py-20 pl-[1.3rem]">
   <p className="text-[#FFFFFF80] font-aeonik font-medium text-[1.375rem] leading-[1.625rem] tracking-[0.01375rem] py-[15px] cursor-pointer">What are you waiting for?</p>
   <p className="text-white font-aeonik font-medium text-[1.75rem] leading-[1.625rem] tracking-[0.01375rem] py-[15px] cursor-pointer ">Change the way you money</p>
   <button className="py-[10px] px-[24px] bg-[#FFFFFF] text-black text-[1rem] font-medium font-aeonik rounded-full my-[10px]">Learn more</button>

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { InView } from "react-intersection-observer";
 
 const page = () => {
-  const handleVideoPlay = (inView, entry) => {
+  const handleVideoPlay = (inView: boolean, entry) => {
     const video = entry.target;
 
     if (inView) {

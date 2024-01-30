@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-const items = [
+let items = [
   {
     heading: "Simply hit send",
     textContent: "Sending and receiving money is just as easy as texting a friend.",
@@ -24,10 +24,14 @@ const items = [
   },
 ];
 
+
+
+
 const page = () => {
 
   const [currentvideoIndex, setCurrentvideoIndex] = useState(0);
   const [selectedButtonIndex, setSelectedButtonIndex] = useState(null);
+
 
 
   useEffect(() => {
@@ -35,43 +39,54 @@ const page = () => {
       if (selectedButtonIndex === null) {
       setCurrentvideoIndex((prevIndex) => (prevIndex + 1) % items.length);
      }
-    }, 2000);
+    }, 7000);
       return () => clearInterval(interval);
   }, [selectedButtonIndex, currentvideoIndex]);
+
 
   const heading = items[currentvideoIndex].heading;
   const textContent = items[currentvideoIndex].textContent;
   const video1 = items[currentvideoIndex].video;
 
 
-  const handleButtonClick = (index) => {
+  const handleButtonClick = (index: any) => {
     setSelectedButtonIndex(index);
     setCurrentvideoIndex(index)
   };
 
  return (
-    <div className={`relative w-[100vw] h-[100vh] z-50 py-[4rem] flex flex-row mx-auto`}>
-      <div className="w-[63rem] flex flex-col gap-y-6 z-30 justify-center items-center">
-        <h2 className="font-aeonik text-black text-[3rem] leading-[3.5rem] font-black uppercase tracking-[-0.6px]">
+    <div className={`relative w-[100vw] h-[100vh] z-50 py-[4rem] flex justify-center items-center flex-row mx-auto gap-x-8`}>
+      <div className="w-[488px] h-[260px] flex flex-col gap-y-6 z-30 justify-center  text-left transition-all duration-300 ease-in-out">
+        
+        <h2 className="font-aeonik text-black text-[3rem] leading-[3.5rem] font-black uppercase tracking-[-0.6px] text-left">
           {heading}
         </h2>
-        <span className="font-aeonik text-black text-lg font-normal leading-[1.5rem] px-[13rem] text-center">
+        <span className="font-aeonik text-black text-lg font-normal leading-[1.5rem]  text-left">
         {textContent}
         </span>
-        <button className="font-aeonik bg-[#f4f4f4] w-[10.5rem] h-[2.6rem] font-medium text-black rounded-full cursor-pointer px-[1.5rem] py-[0.625rem] text-base leading-[1.3rem]">
+        <button className="font-aeonik bg-black w-[10.5rem] h-[2.6rem] font-medium text-[#f4f4f4] rounded-full cursor-pointer px-[1.5rem] py-[0.625rem] text-base leading-[1.3rem]">
           try it out
         </button>
-     </div>
+       </div>
         <div className="flex flex-col justify-center items-center gap-y-5">
-        <video type="video/mp4" autoPlay muted className="w-[20rem] h-[25rem]" controls>
-          <source src={video1}/>
-        </video>
+          
+          <div className="w-[400px] h-[470px]  flex justify-center items-center">
+        {items.map(
+        (video, index) =>
+            currentvideoIndex == index  && (
+            <video autoPlay muted key={index} width="360" height="420" controls={false}>
+              <source src={video.video} type="video/mp4" />
+             </video>
+            )
+              )}
+              </div>
+         
         <div className="flex flex-row gap-x-2">
           {items.map((image, index) => (
             <button  key={index} className={`font-aeonik  ${
              ( selectedButtonIndex !== null && selectedButtonIndex === index) ||
              currentvideoIndex === index
-                ? "bg-black text-white"
+                ? `bg-black text-white ${(selectedButtonIndex === null) ? "btn" : ""} overflow-hidden z-50 relative`
                 : `bg-white bg-opacity-20 text-black`
           } h-[2.6rem] font-medium  rounded-full cursor-pointer px-[1.5rem] py-[0.625rem] text-base leading-[1.3rem] border-2 border-black`}
             onClick={() => handleButtonClick(index)}>

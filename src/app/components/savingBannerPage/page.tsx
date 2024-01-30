@@ -49,7 +49,7 @@ const page = () => {
         setBrightness(1); // Restore brightness after a delay
       }, 100); // Adjust the delay based on your needs
       }
-    }, 8000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [selectedButtonIndex, currentImageIndex]);
@@ -59,7 +59,7 @@ const page = () => {
   const backgroundClass = items[currentImageIndex].bgImage;
 
 
-  const handleButtonClick = (index) => {
+  const handleButtonClick = (index: any) => {
     setSelectedButtonIndex(index);
     setCurrentImageIndex(index)
     setBrightness(0.2); // Set the initial brightness when changing images
@@ -106,7 +106,7 @@ const page = () => {
             <button  key={index} className={`font-aeonik  ${
              ( selectedButtonIndex !== null && selectedButtonIndex === index) ||
               currentImageIndex === index
-                ? "bg-white text-black"
+                ? `bg-white text-black ${(selectedButtonIndex === null) ? "btn before:bg-[#dfe3e7]" : ""} overflow-hidden z-50 relative`
                 : `bg-[#f4f4f4] bg-opacity-20 text-[#f4f4f4]`
           } h-[2.6rem] font-medium  rounded-full cursor-pointer px-[1.5rem] py-[0.625rem] text-base leading-[1.3rem] border-2 border-white`}
             onClick={() => handleButtonClick(index)}>
