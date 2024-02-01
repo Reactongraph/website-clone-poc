@@ -24,20 +24,21 @@ let items = [
   },
 ];
 
-
-
-
 const page = () => {
 
   const [currentvideoIndex, setCurrentvideoIndex] = useState(0);
   const [selectedButtonIndex, setSelectedButtonIndex] = useState(null);
-
-
+  const [textOpacity, setTextOpacity] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (selectedButtonIndex === null) {
       setCurrentvideoIndex((prevIndex) => (prevIndex + 1) % items.length);
+      setTextOpacity(0); // Set opacity to 0 when changing content
+        setTimeout(() => {
+          setTextOpacity(1); // Set opacity back to 1 after a short delay
+        }, 1000);
+
      }
     }, 7000);
       return () => clearInterval(interval);
@@ -46,17 +47,24 @@ const page = () => {
 
   const heading = items[currentvideoIndex].heading;
   const textContent = items[currentvideoIndex].textContent;
-  const video1 = items[currentvideoIndex].video;
+  
 
 
   const handleButtonClick = (index: any) => {
     setSelectedButtonIndex(index);
     setCurrentvideoIndex(index)
+    setTextOpacity(0); // Set opacity to 0 when changing content
+    setTimeout(() => {
+      setTextOpacity(1); // Set opacity back to 1 after a short delay
+    }, 1000);
   };
 
  return (
     <div className={`relative w-[100vw] h-[100vh] z-50 py-[4rem] flex justify-center items-center flex-row mx-auto gap-x-8`}>
-      <div className="w-[488px] h-[260px] flex flex-col gap-y-6 z-30 justify-center  text-left transition-all duration-300 ease-in-out">
+      <div className={`w-[488px] h-[260px] flex flex-col gap-y-6 z-30 justify-center text-left transition-all duration-300 ease-linear`}
+      // style={{ opacity: textOpacity }}
+      style={{ opacity: textOpacity, transform: `translateY(${textOpacity === 0 ? '20px' : '0'})` }}
+      >
         
         <h2 className="font-aeonik text-black text-[3rem] leading-[3.5rem] font-black uppercase tracking-[-0.6px] text-left">
           {heading}
@@ -64,8 +72,8 @@ const page = () => {
         <span className="font-aeonik text-black text-lg font-normal leading-[1.5rem]  text-left">
         {textContent}
         </span>
-        <button className="font-aeonik bg-black w-[10.5rem] h-[2.6rem] font-medium text-[#f4f4f4] rounded-full cursor-pointer px-[1.5rem] py-[0.625rem] text-base leading-[1.3rem]">
-          try it out
+        <button className="font-aeonik bg-black w-[10.5rem] h-[2.6rem] font-medium text-[#f4f4f4] rounded-full cursor-pointer px-[1.5rem] py-[0.625rem] text-base leading-[1.3rem] transition-all duration-300 ease-in-out">
+          Try it out
         </button>
        </div>
         <div className="flex flex-col justify-center items-center gap-y-5">

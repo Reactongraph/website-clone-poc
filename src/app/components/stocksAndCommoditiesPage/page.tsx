@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 let items = [
   {
     heading: "YOU CALL THE STOCKS",
-    textContent: "From Apple to Tesla, choose from 2,000+ stocks, and own a slice of some of the most popular companies on the planet.¹",
+    textContent: "From Apple to Tesla, choose from 2,000+ stocks, and own a slice of  some of the most popular companies on the planet.¹",
     innerTextContent: "Capital at risk. T&Cs apply.",
     buttonContent: "Explore Stocks",
     buttons: "Stocks",

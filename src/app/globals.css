@@ -245,11 +245,11 @@ animation: animate 7s linear alternate;
 top: 0px;
 }
 
-/* .aimateBlock{
+.aimateBlock{
   animation: animate2 1s linear alternate;
-} */
+}
 
-/* @keyframes animate2 {
+@keyframes animate2 {
   0%{
     opacity: 0;
   }
@@ -257,7 +257,7 @@ top: 0px;
    opacity: 1;
 
   }
-  } */
+  }
 
 @keyframes animate {
 0%{

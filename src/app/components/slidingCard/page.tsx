@@ -97,12 +97,12 @@ const settings = {
 
   return (
     <div className={`bg-bg bg-cover bg-center bg-no-repeat w-[100vw] h-[100vh] bg-transparent relative`}>
-    <div className={`h-[60vh] pt-[48px] pl-[230px] z-30 relative  ${showSlides ? 'transition-all duration-500 transform -translate-y-full' : ''} ${
+    <div className={`h-[60vh] pt-24 pl-[14.375rem] z-30 relative ${showSlides ? 'transition-all duration-500 transform -translate-y-full' : ''} ${
           isHidden && showSlides ? 'hidden' : ''
         }`}>
-      <h1 className='text-[6rem] capitalize text-white font-black w-[70vw] font-aeonik'>CHANGE THE WAY YOU MONEY</h1>
-      <p className='text-[18px] font-aeonik font-normal text-white leading-6 '>For those who want more from their money — <br/>there’s Revolut. Sign up for free, in a tap.</p>
-      <button className='bg-[#191C1F] w-[8.25rem] h-[2.6rem] font-medium text-white rounded-full cursor-pointer mt-[10px]'>Get the app</button>
+      <h1 className='text-[5.8rem] capitalize text-white font-black w-[70vw] font-aeonik '>CHANGE THE WAY YOU MONEY</h1>
+      <p className='text-lg font-aeonik font-normal text-white leading-6  px-2'>For those who want more from their money — <br/>there’s Revolut. Sign up for free, in a tap.</p>
+      <button className='bg-[#191C1F] w-[8.25rem] h-[2.6rem] font-medium text-white rounded-full cursor-pointer mt-[10px] mx-2'>Get the app</button>
     </div>
     <motion.div
     className={`w-[100vw] flex justify-center  absolute bottom-0 ${
