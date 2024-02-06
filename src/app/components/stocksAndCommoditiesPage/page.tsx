@@ -6,11 +6,13 @@ import { useState, useEffect } from "react";
 let items = [
   {
     heading: "YOU CALL THE STOCKS",
-    textContent: "From Apple to Tesla, choose from 2,000+ stocks, and own a slice of  some of the most popular companies on the planet.¹",
+    textContent: `From Apple to Tesla, choose from 2,000+ stocks, and own a slice of  \n some of the most popular companies on the planet.¹`,
     innerTextContent: "Capital at risk. T&Cs apply.",
     buttonContent: "Explore Stocks",
     buttons: "Stocks",
-    video: "/videos/stocks.mp4"
+    video: "/videos/stocks.mp4",
+    videoMobileView: "/videos/stocks-mobileview.mp4"
+
  },
   {
     heading: "MINE FOR MENTAL",
@@ -18,7 +20,8 @@ let items = [
     innerTextContent: "Capital at risk. Not FCA regulated or protected.",
     buttonContent: "Explore Commodities",
     buttons: "Commodities",
-    video: "/videos/commodities.mp4"
+    video: "/videos/commodities.mp4",
+    videoMobileView: "/videos/commodities-mobileview.mp4"
   }
 ];
 
@@ -55,16 +58,21 @@ const page = () => {
   };
 
  return (
-    <div className={`relative w-[100vw] h-[100vh] z-50 py-[4rem] flex justify-center items-center flex-col mx-auto gap-x-8  gap-y-8`}>
+    <div className={`relative w-screen md:h-screen z-50 py-[4rem] flex justify-center items-center flex-col mx-auto gap-x-8  gap-y-8`}>
         
-      <div className="w-[62.5rem] h-[14.5rem] flex flex-col gap-y-6 z-30 justify-center items-center text-center transition-all  duration-300 ease-in-out">
+      <div className="w-screen md:w-[62.5rem] px-4 h-fit sm:h-[14.5rem] max-md:text-left  flex flex-col gap-y-6 z-30 md:justify-center md:items-center text-center transition-all duration-300 ease-in-out">
         
-        <h2 className="font-aeonik text-black text-[3rem] leading-[3.5rem] font-black uppercase tracking-[-0.6px]">
+        <h2 className="font-aeonik text-black text-[clamp(2.25rem,5vw,3rem)] md:leading-[3.5rem] font-black uppercase md:tracking-[-0.6px]">
           {heading}
         </h2>
         <span className="font-aeonik text-black text-lg font-normal leading-[1.5rem]">
-        {textContent}
-        <br/>
+        {textContent.split('\n').map((line, index) => (
+        <React.Fragment key={index}>
+        <p>{line}</p>
+        {/* {index < textContent.split('\n').length - 1 && <br />} */}
+         </React.Fragment>
+         ))}
+        {/* <br/> */}
         {innerTextContent}
         </span>
 
@@ -74,7 +82,7 @@ const page = () => {
        </div>
         <div className="w-[62.5rem] flex flex-col justify-center items-center gap-y-5">
           
-          <div className="  flex justify-center items-center">
+          <div className="  flex justify-center items-center max-md:hidden">
         {items.map(
         (videoData, index) =>
             currentvideoIndex == index  && (
@@ -85,6 +93,17 @@ const page = () => {
               )}
               </div>
          
+              <div className="  flex justify-center items-center md:hidden">
+        {items.map(
+        (videoData, index) =>
+            currentvideoIndex == index  && (
+            <video autoPlay muted key={index} width="475" height="287" controls={false}>
+              <source src={videoData.videoMobileView} type="video/mp4" />
+             </video>
+            )
+              )}
+              </div>
+
         <div className="flex flex-row gap-x-2">
           {items.map((image, index) => (
             <button  key={index} className={`font-aeonik  ${

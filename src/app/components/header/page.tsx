@@ -2,12 +2,18 @@ import React from 'react'
 import {listDetails} from "./data";
 import {useState, useEffect} from "react";
 import Image from "next/image";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const page = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [color, setColor] = useState(false);
+  
+  const [nav, setNav] = useState(true);
 
+  const handleNav = () => {
+    setNav(!nav);
+  };
 
   useEffect(() =>{
     if (window.scrollY > 0) {
@@ -49,8 +55,8 @@ const page = () => {
   }, [prevScrollPos]);
   
   return (
-    <div className={`fixed h-20 z-[100] w-screen flex justify-center items-center ${color ? 'bg-[#cccccc]' : ''} ${isVisible ? '' : 'hidden'}`}>
-        <div className='w-[70vw] flex relative items-center'>
+    <div className={`fixed h-20 z-[100]  w-screen flex justify-center items-center  ${color ? 'bg-[#cccccc]' : ''} ${isVisible ? '' : 'hidden'}`}>
+        <div className='w-[90vw] lg:w-[70vw] flex relative items-center '>
         <Image
           src="/images/logoRevolut.svg"
           width={100}
@@ -58,16 +64,32 @@ const page = () => {
          alt="logo"
          className={`${color ? '' : 'filter invert'} cursor-pointer`}
          />
-     
-
-      <ul className={`font-aeonik  ${color ? 'text-black' : 'text-white'} text-base font-normal leading-[1.3rem] gap-x-8 flex items-center px-16`}>  
+     <ul className={`font-aeonik  ${color ? 'text-black' : 'text-white'} text-base font-normal leading-[1.3rem] gap-x-8 flex items-center px-16 max-lg:hidden`}>  
       {listDetails.map((item, index)=> (
         <li key={index} className='cursor-pointer'>{item}</li>
          ))}
       </ul>
-      <div className="flex justify-center items-center gap-3 box-border text-right  absolute right-0">
+      <div className="flex justify-center items-center gap-3 box-border text-right  absolute right-0 max-lg:hidden">
             <button className={`font-aeonik px-6 py-[0.7rem] text-base font-medium rounded-full cursor-pointer transition-all hover:ease-in-out duration-300 ${color ? 'text-black hover:bg-white' : 'text-white hover:bg-black'}`}>Login</button>
             <button className={`font-aeonik px-6 py-[0.7rem] text-base font-medium rounded-full cursor-pointer hover:bg-opacity-70 transition-all hover:ease-in-out duration-300 ${color ? 'bg-black text-white' : 'bg-white text-black'}`}>Signup</button>
+          </div>
+          <div onClick={handleNav} className="block absolute right-0 lg:hidden">
+            {!nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+          </div>
+
+          <div
+            className={`${
+              !nav
+                ? "absolute right-0 top-8 bg-[#f9f9f9] z-20 transition-all ease-in-out duration-500"
+                : "absolute rounded-xl -right-[100%]"
+            }`}
+          >
+            
+               <ul className={`font-aeonik   ${nav ? "hidden" : "flex flex-col"} text-base font-normal leading-[1.3rem]  `}>  
+      {listDetails.map((item, index)=> (
+        <li key={index} className='cursor-pointer p-4'>{item}</li>
+         ))}
+      </ul>
           </div>
       </div> 
     </div>

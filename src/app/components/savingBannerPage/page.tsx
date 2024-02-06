@@ -72,18 +72,18 @@ const page = () => {
     transition: "filter 600ms ease 0s", // Add transition property
   };
   return (
-    <div className={`relative ${backgroundClass} bg-cover bg-center bg-no-repeat w-[100vw] h-[100vh] z-50 py-[4rem]`}
+    <div className={`relative ${backgroundClass} bg-cover bg-center bg-no-repeat w-screen md:h-screen z-50 py-[4rem] bg-opacity-100`}
     style={backgroundStyle}
     >
-      <div className="w-[63rem] flex flex-col gap-y-6 items-center z-30 mx-auto">
-        <h2 className="font-aeonik text-white text-[3rem] leading-[3.5rem] font-black uppercase tracking-[-0.6px]">
+      <div className="w-screen lg:w-[63rem] flex flex-col gap-y-6 md:items-center z-30 mx-auto  px-4">
+        <h2 className="font-aeonik text-white text-[clamp(2.25rem,5vw,3rem)] leading-[2.5rem] md:leading-[3.5rem] font-black uppercase md:tracking-[-0.6px]">
           Are your savings interest-ing?
         </h2>
-        <span className="font-aeonik text-white text-lg font-normal leading-[1.5rem] px-[13rem] text-center">
+        <span className="font-aeonik text-white text-lg font-normal leading-[1.5rem] md:text-center">
           Let your money make more money with up to 4.75% AER/Gross (variable)
           interest on savings. Paid every single day.
         </span>
-        <span className=" text-white text-xs font-normal leading-[1rem] px-[13rem] text-center">
+        <span className=" text-white text-xs font-normal leading-[1rem]  md:text-center">
           AER stands for Annual Equivalent Rate and illustrates what the
           interest rate would be if interest was paid and compounded once each
           year. Gross is the interest rate without tax deducted. The interest
@@ -100,7 +100,7 @@ const page = () => {
           // fill
           alt=""
         />
-        <div className="flex flex-row gap-x-2">
+        <div className="flex flex-row gap-x-2 gap-y-2 flex-wrap justify-center">
           {items.map((image, index) => (
             
             <button  key={index} className={`font-aeonik  ${

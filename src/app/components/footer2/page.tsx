@@ -8,13 +8,13 @@ const Footer = () => {
 
   return (
     <>
-    <div className="bg-black py-[2.5rem] px-[15rem] justify-center">
-    <div className="bg-black p-[1.5rem]">
+    <div className="bg-black py-[2.5rem] px-4 xl:px-[15rem] justify-center">
+    <div className="bg-black max-sm:px-2 px-4 md:p-[1.5rem]">
       <h2 className="font-medium text-[2.5rem] leading-8 tracking-[0.0175rem] text-white py-[4rem]">Choose your plan</h2>
-    <div className="w-[65vw] grid grid-cols-6 min-h-fit [&_div:nth-child(1)]:col-span-2 [&_div:nth-child(2)]:col-span-2 [&_div:nth-child(3)]:col-span-2 [&_div:nth-child(4)]:col-span-3 [&_div:nth-child(5)]:col-span-3 gap-x-[24px] gap-y-[24px] max-w-[1078px] items-center mx-auto">
+    <div className="max-w-screen xl:w-[65vw] grid max-lg:grid-cols-1 grid-cols-6 min-h-fit [&_div:nth-child(1)]:col-span-2 [&_div:nth-child(2)]:col-span-2 [&_div:nth-child(3)]:col-span-2 [&_div:nth-child(4)]:col-span-3 [&_div:nth-child(5)]:col-span-3 gap-x-[24px] gap-y-[24px] max-w-[1078px] items-center mx-auto">
     {planDetails.map(item => (
 
-      <div className="bg-[#f7f7f7] rounded-[20px]  h-[236px] px-[24px] pt-[24px] flex flex-col gap-y-[8px] relative group cursor-pointer " key={item.title}>
+      <div className="bg-[#f7f7f7] rounded-[20px] min-w-[260px] h-[236px] px-[24px] pt-[24px] flex flex-col gap-y-[8px] relative group cursor-pointer " key={item.title}>
         <h2 className="font-medium text-[1.375rem] leading-[1.625rem] tracking-[0.01375rem] font-aeonik">
           {item.title}
         </h2>
@@ -35,7 +35,7 @@ const Footer = () => {
   <button className="py-[10px] px-[24px] bg-[#FFFFFF] text-black text-[1rem] font-medium font-aeonik rounded-full my-[10px]">Learn more</button>
 </div>
   
-<div className="pl-[20px] flex flex-row flex-wrap max-w-[983px] ">
+<div className="pl-[20px] flex flex-row flex-wrap max-w-[1000px]  gap-x-4">
   {listDetails.map((section, index) => (
     <div key={index} className={`mx-2 ${Array.isArray(section) ? 'flex-col' : 'flex-row'} h-fit `}>
       {Array.isArray(section) ? (
@@ -65,7 +65,7 @@ const Footer = () => {
             {section.items.map((item, itemIndex) => (
               <li
                 key={itemIndex}
-                className="font-inter font-normal text-xs leading-[1.125rem] py-[8px] w-[134px] tracking-[0.01125rem] text-[#75808A] hover:cursor-pointer hover:text-white"
+                className="font-inter font-normal text-xs leading-[1.125rem] py-[8px] w-[134px] tracking-[0.01125rem] text-[#75808A] hover:cursor-pointer hover:text-white "
               >
                 {item}
               </li>
@@ -96,7 +96,7 @@ const Footer = () => {
     <hr className="bg-gray-500 my-4"/>
 </div>
 
-<div className="flex relative">
+<div className="flex relative max-sm:flex-col  max-sm:gap-y-2">
 <div className="flex gap-x-2">
 <Image
     src="/images/logoUnitedKingdom.svg"
@@ -107,11 +107,13 @@ const Footer = () => {
   />
   <span className="text-[#75808A] font-aeonik font-normal text-xs leading-[1.125rem] tracking-[0.01125rem] hover:cursor-pointer hover:text-white">United Kingdom</span>
   </div>
-   <ul className="flex gap-x-4  flex-wrap w-[50vw] absolute right-0">
+  <div>
+   <ul className="flex gap-x-4  flex-wrap sm:w-[50vw] sm:absolute sm:right-0">
      {listData.map(item => (
       <li key={item} className="text-[#75808A] font-normal text-xs leading-[1.125rem] tracking-[0.01125rem] hover:cursor-pointer hover:text-white">{item}</li>
      ))}
    </ul>
+   </div>
    </div>
 
 <div className="font-aeonik font-normal text-xs leading-[1.125rem] tracking-[0.01125rem] text-left text-[#75808A] py-20">

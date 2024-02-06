@@ -77,31 +77,24 @@ const settings = {
     beforeChange: (current, next) => setImageIndex(next),
     responsive:[
       {
-        breakpoint:640,
+        breakpoint:440,
         settings:{
           slidesToShow:2,
           slidesToScroll:1,
           centerMode: false,
         },
       },
-      {
-        breakpoint:430,
-        settings:{
-          slidesToShow:1,
-          slidesToScroll:1,
-          centerMode: false,
-        }
-      }
+    
     ]
   };
 
   return (
-    <div className={`bg-bg bg-cover bg-center bg-no-repeat w-[100vw] h-[100vh] bg-transparent relative`}>
-    <div className={`h-[60vh] pt-24 pl-[14.375rem] z-30 relative ${showSlides ? 'transition-all duration-500 transform -translate-y-full' : ''} ${
+    <div className={`bg-bg bg-cover bg-center bg-no-repeat w-screen h-screen bg-transparent relative`}>
+    <div className={` h-[13.8rem] sm:h-[60vh] pt-28 px-4 lg:pl-[8rem] xl:pl-[14.375rem] z-30  relative ${showSlides ? 'transition-all duration-500 transform -translate-y-full' : ''} ${
           isHidden && showSlides ? 'hidden' : ''
         }`}>
-      <h1 className='text-[5.8rem] capitalize text-white font-black w-[70vw] font-aeonik '>CHANGE THE WAY YOU MONEY</h1>
-      <p className='text-lg font-aeonik font-normal text-white leading-6  px-2'>For those who want more from their money — <br/>there’s Revolut. Sign up for free, in a tap.</p>
+      <h1 className='max-sm:text-[2.25rem] text-[4rem] md:text-[clamp(2.25rem,4.1rem+2vw,6.5rem)]  capitalize text-white font-black xl:w-[70vw] font-aeonik leading-[2.25rem] sm:leading-[4rem] md:leading-[5.8rem]'>CHANGE THE WAY YOU MONEY</h1>
+      <p className='max-sm:text-base text-lg font-aeonik font-normal text-white leading-6 px-2'>For those who want more from their money — <br className="max-sm:hidden"/>there’s Revolut. Sign up for free, in a tap.</p>
       <button className='bg-[#191C1F] w-[8.25rem] h-[2.6rem] font-medium text-white rounded-full cursor-pointer mt-[10px] mx-2'>Get the app</button>
     </div>
     <motion.div
@@ -115,8 +108,7 @@ const settings = {
       duration: 1,
       ease: "easeInOut",
       times: [0, 1],
-     
-    }}
+     }}
   >
 
       <div className='bg-girl bg-transparent bg-center bg-no-repeat bg-cover  w-[800px] h-[800px]  absolute bottom-0'/>
@@ -137,16 +129,16 @@ const settings = {
     
  >
      
-    <div className="bg-white w-[100vw] h-[100vh] pt-[5rem] flex flex-col items-center rounded z-50">
-    <div className="sapce-y-2 w-[66rem]">
-      <h2 className="font-aeonik text-[3.5rem] font-black leading-[3.5rem] uppercase text-center">Make your spend, well-spent</h2>
-      <div className="px-[13.5rem]">
-        <p className="text-[#191C1F] text-lg leading-6 my-[1rem] text-center">Grabbing a coffee? Add some cashback. When in Japan? Spend in Yen. Big life change? Try a Joint Account. However you spend — Revolut is all you need.</p>
-        <p className="text-[#191C1F] text-xs font-normal leading-[1.125rem] text-center">Shops cashback promotions vary. Joint Account T&Cs apply.</p>
+    <div className="bg-white w-screen h-screen pt-[5rem] flex flex-col items-center gap-y-8 rounded z-50 px-4">
+    <div className="sapce-y-2 w-screen md:w-[66rem] px-1">
+      <h2 className="font-aeonik max-lg:text-[2rem] text-[3.5rem] font-black leading-[2rem] sm:leading-[3.5rem] uppercase text-left md:text-center">Make your spend, well-spent</h2>
+      <div className=" md:px-[13.5rem]">
+        <p className="text-[#191C1F] text-base md:text-lg leading-6 my-[1rem] tex-left md:text-center ">Grabbing a coffee? Add some cashback. When in Japan? Spend in Yen. Big life change? Try a Joint Account. However you spend — Revolut is all you need.</p>
+        <p className="text-[#191C1F] text-xs font-normal leading-[1.125rem] text-left md:text-center">Shops cashback promotions vary. Joint Account T&Cs apply.</p>
         </div>  
       </div>
   
-    <div className="max-w-[700px] mx-auto my-[4rem]">
+    <div className="w-screen min-w-[320px] md:max-w-[700px] mx-auto">
           <div
             className=""
           >
@@ -158,7 +150,7 @@ const settings = {
                   key={index}
                 >
                   
-                  <div className="rounded-[5px] shadow-4xl  w-[208px] h-[294px]  m-auto">
+                  <div className="rounded-[5px] shadow-4xl  w-[150px] sm:w-[208px] h-[220px] sm:h-[294px]  m-auto">
                     <Image
                       src={image.src}
                       width={image.width}

@@ -13,17 +13,16 @@ const page = () => {
       };
 
   return (
-  <div className={`relative w-screen h-screen z-50 py-[4rem] flex justify-center items-center flex-row mx-auto gap-x-8`}>
+  <div className={`relative w-screen md:h-screen z-50 py-[4rem] flex justify-center items-center flex-col-reverse md:flex-row mx-auto gap-x-8`}>
        <div className="w-[400px] h-[512px]  flex justify-center items-center">
        
        <video  ref={videoRef} autoPlay muted  onEnded={handleVideoEnded} width="360" height="470" controls={false}>
          <source src="/videos/globalToo.mp4" type="video/mp4" />
         </video>
-
-    </div>
-      <div className="w-[488px] h-[260px] flex flex-col gap-y-6 z-30 justify-center  text-left">
+ </div>
+      <div className="sm:w-[488px] h-[260px] flex flex-col gap-y-6 z-30 justify-center  text-left px-4">
         
-        <h2 className="font-aeonik text-black text-[3rem] leading-[3.5rem] font-black uppercase tracking-[-0.6px] text-left">
+        <h2 className="font-aeonik text-black text-[clamp(2.25rem,5vw,3rem)] leading-[2.5rem] sm:leading-[3.5rem] font-black uppercase sm:tracking-[-0.6px] text-left">
               And send across the globe too
         </h2>
         <span className="font-aeonik text-black text-lg font-normal leading-[1.5rem]  text-left">
@@ -37,5 +36,4 @@ const page = () => {
        </div> 
   )
 }
-
 export default page

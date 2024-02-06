@@ -28,18 +28,13 @@ const page = () => {
 
   const [currentvideoIndex, setCurrentvideoIndex] = useState(0);
   const [selectedButtonIndex, setSelectedButtonIndex] = useState(null);
-  const [textOpacity, setTextOpacity] = useState(0);
+ 
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (selectedButtonIndex === null) {
       setCurrentvideoIndex((prevIndex) => (prevIndex + 1) % items.length);
-      setTextOpacity(0); // Set opacity to 0 when changing content
-        setTimeout(() => {
-          setTextOpacity(1); // Set opacity back to 1 after a short delay
-        }, 1000);
-
-     }
+       }
     }, 7000);
       return () => clearInterval(interval);
   }, [selectedButtonIndex, currentvideoIndex]);
@@ -53,20 +48,14 @@ const page = () => {
   const handleButtonClick = (index: any) => {
     setSelectedButtonIndex(index);
     setCurrentvideoIndex(index)
-    setTextOpacity(0); // Set opacity to 0 when changing content
-    setTimeout(() => {
-      setTextOpacity(1); // Set opacity back to 1 after a short delay
-    }, 1000);
+    
   };
 
  return (
-    <div className={`relative w-[100vw] h-[100vh] z-50 py-[4rem] flex justify-center items-center flex-row mx-auto gap-x-8`}>
-      <div className={`w-[488px] h-[260px] flex flex-col gap-y-6 z-30 justify-center text-left transition-all duration-300 ease-linear`}
-      // style={{ opacity: textOpacity }}
-      style={{ opacity: textOpacity, transform: `translateY(${textOpacity === 0 ? '20px' : '0'})` }}
-      >
-        
-        <h2 className="font-aeonik text-black text-[3rem] leading-[3.5rem] font-black uppercase tracking-[-0.6px] text-left">
+    <div className={`relative w-screen  md:h-screen z-50 py-[4rem]  flex justify-center items-center flex-col md:flex-row mx-auto gap-x-8`}>
+      <div className={`sm:w-[488px] px-4 h-[260px] flex flex-col gap-y-6 z-30 justify-center text-left transition-all duration-300 ease-linear`}
+    >
+        <h2 className="font-aeonik text-black text-[clamp(2.25rem,5vw,3rem)] leading-[2.5rem] sm:leading-[3.5rem] font-black uppercase sm:tracking-[-0.6px] text-left">
           {heading}
         </h2>
         <span className="font-aeonik text-black text-lg font-normal leading-[1.5rem]  text-left">
